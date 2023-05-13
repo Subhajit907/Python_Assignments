@@ -1,0 +1,89 @@
+1. Write a Python Program to Find the Factorial of a Number?\n",
+ Sol."
+   num = int(input(\"Enter a number: \"))
+    
+    fact = 1
+    for i in range(num, 0, -1):
+       fact = fact*i
+    print("Factorial of {}: {}".format(num, fact))
+   
+ 2. Write a Python Program to Display the multiplication Table?\n",
+Sol."
+    num = int(input(\"Enter a number: \"))\n",
+    
+    for i in range(1, 11):
+    print("{} x {} = {}".format(num, i, num*i))
+   
+ 3. Write a Python Program to Print the Fibonacci sequence?\n",
+Sol."
+  
+    fibo_length = int(input("Enter a length: "))
+    a = 0
+    b = 1
+    print(a, end = ' ')
+    print(b, end = ' ')
+    while(fibo_length-2 > 0)
+        nt = a + b
+        print(nt, end = ' ')
+        a = b\n",
+        b = nt\n",
+
+        fibo_length -= 1"
+
+4. Write a Python Program to Check Armstrong Number?
+Sol. 
+num = int(input("Enter a number: "))
+
+# initialize sum
+sum = 0
+
+# find the sum of the cube of each digit
+temp = num
+while temp > 0:
+   digit = temp % 10
+   sum += digit ** 3
+   temp //= 10
+
+# display the result
+if num == sum:
+   print(num,"is an Armstrong number")
+else:
+   print(num,"is not an Armstrong number")
+
+
+5. Write a Python Program to Find Armstrong Number in an Interval?
+Sol.
+lower = 100
+upper = 2000
+
+for num in range(lower, upper + 1):
+
+   # order of number
+   order = len(str(num))
+    
+   # initialize sum
+   sum = 0
+
+   temp = num
+   while temp > 0:
+       digit = temp % 10
+       sum += digit ** order
+       temp //= 10
+
+   if num == sum:
+       print(num)
+   
+6. Write a Python Program to Find the Sum of Natural Numbers?
+Sol.
+num = 16
+
+if num < 0:
+   print("Enter a positive number")
+else:
+   sum = 0
+   # use while loop to iterate until zero
+   while(num > 0):
+       sum += num
+       num -= 1
+   print("The sum is", sum)
+   
