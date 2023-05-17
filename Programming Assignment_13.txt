@@ -1,0 +1,104 @@
+1. Write a program that calculates and prints the value according to the given formula:
+    
+2. Write a program which takes 2 digits, X,Y as input and generates a 2-dimensional array. The element value in the i-th row and j-th column of the array should be i*j.
+Ans:
+def generate_2d_array(X, Y):
+    array = [[i*j for j in range(Y)] for i in range(X)]
+    return array
+
+# Example usage
+X = int(input("Enter the number of rows: "))
+Y = int(input("Enter the number of columns: "))
+
+result = generate_2d_array(X, Y)
+print("Generated 2D array:")
+for row in result:
+    print(row)
+
+
+3. Write a program that accepts a comma separated sequence of words as input and prints the words in a comma-separated sequence after sorting them alphabetically.
+Ans:
+def sort_words(words):
+    word_list = words.split(",")
+    sorted_words = sorted(word_list)
+    sorted_sequence = ",".join(sorted_words)
+    return sorted_sequence
+
+# Example usage
+sequence = input("Enter a comma-separated sequence of words: ")
+sorted_sequence = sort_words(sequence)
+print("Sorted sequence:", sorted_sequence)
+
+
+4. Write a program that accepts a sequence of whitespace separated words as input and prints the words after removing all duplicate words and sorting them alphanumerically.
+Ans:
+def remove_duplicates_sort_words(sequence):
+    word_list = sequence.split()
+    unique_words = list(set(word_list))
+    sorted_words = sorted(unique_words)
+    sorted_sequence = " ".join(sorted_words)
+    return sorted_sequence
+
+# Example usage
+sequence = input("Enter a whitespace-separated sequence of words: ")
+sorted_sequence = remove_duplicates_sort_words(sequence)
+print("Sorted sequence:", sorted_sequence)
+
+
+5. Write a program that accepts a sentence and calculate the number of letters and digits.
+Ans:
+def count_letters_digits(sentence):
+    letters = 0
+    digits = 0
+
+    for char in sentence:
+        if char.isalpha():
+            letters += 1
+        elif char.isdigit():
+            digits += 1
+
+    return letters, digits
+
+# Example usage
+sentence = input("Enter a sentence: ")
+letter_count, digit_count = count_letters_digits(sentence)
+print("Number of letters:", letter_count)
+print("Number of digits:", digit_count)
+
+ 
+6. A website requires the users to input username and password to register. Write a program to check the validity of password input by users.
+Ans:
+def check_password_validity(password):
+    # Check length of password
+    if len(password) < 8:
+        return False
+
+    # Check for uppercase, lowercase, and digit
+    has_uppercase = False
+    has_lowercase = False
+    has_digit = False
+
+    for char in password:
+        if char.isupper():
+            has_uppercase = True
+        elif char.islower():
+            has_lowercase = True
+        elif char.isdigit():
+            has_digit = True
+
+    # Return True if all criteria are met, False otherwise
+    return has_uppercase and has_lowercase and has_digit
+
+# Example usage
+username = input("Enter username: ")
+password = input("Enter password: ")
+
+is_valid = check_password_validity(password)
+
+if is_valid:
+    print("Password is valid.")
+else:
+    print("Password is invalid.")
+
+
+  
