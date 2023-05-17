@@ -1,0 +1,111 @@
+1. Write a Python program to Extract Unique values dictionary values?
+Ans:
+def extract_unique_values(dictionary):
+    unique_values = list(set(dictionary.values()))
+    return unique_values
+
+# Example usage
+my_dict = {'a': 1, 'b': 2, 'c': 1, 'd': 3, 'e': 2}
+unique_values = extract_unique_values(my_dict)
+print("Unique values:", unique_values)
+
+   
+2. Write a Python program to find the sum of all items in a dictionary?
+Ans:
+def sum_dictionary_values(dictionary):
+    total_sum = sum(dictionary.values())
+    return total_sum
+
+# Example usage
+my_dict = {'a': 10, 'b': 20, 'c': 30, 'd': 40}
+sum_values = sum_dictionary_values(my_dict)
+print("Sum of dictionary values:", sum_values)
+
+3. Write a Python program to Merging two Dictionaries?
+Ans:
+def merge_dictionaries(dict1, dict2):
+    merged_dict = {**dict1, **dict2}
+    return merged_dict
+
+# Example usage
+dict1 = {'a': 1, 'b': 2}
+dict2 = {'c': 3, 'd': 4}
+merged_dict = merge_dictionaries(dict1, dict2)
+print("Merged dictionary:", merged_dict)
+
+4. Write a Python program to convert key-values list to flat dictionary?
+Ans:
+def convert_to_flat_dictionary(key_value_list):
+    flat_dictionary = {}
+    for pair in key_value_list:
+        key, value = pair
+        flat_dictionary[key] = value
+    return flat_dictionary
+
+# Example usage
+key_value_list = [('a', 1), ('b', 2), ('c', 3)]
+flat_dict = convert_to_flat_dictionary(key_value_list)
+print("Flat dictionary:", flat_dict)
+
+
+5. Write a Python program to insertion at the beginning in OrderedDict?
+Ans:
+from collections import OrderedDict
+
+def insert_at_beginning(ordered_dict, key, value):
+    ordered_dict[key] = value
+    ordered_dict.move_to_end(key, last=False)
+
+# Example usage
+my_dict = OrderedDict([('a', 1), ('b', 2), ('c', 3)])
+print("Original OrderedDict:", my_dict)
+
+insert_at_beginning(my_dict, 'x', 0)
+print("Modified OrderedDict:", my_dict)
+
+
+6. Write a Python program to check order of character in string using OrderedDict()?
+Ans:
+from collections import OrderedDict
+
+def check_order_of_characters(string, pattern):
+    char_positions = OrderedDict()
+
+    for char in string:
+        if char not in char_positions:
+            char_positions[char] = len(char_positions)
+
+    pattern_positions = [char_positions[char] for char in pattern]
+
+    return pattern_positions == sorted(pattern_positions)
+
+# Example usage
+my_string = "Hello, World!"
+my_pattern = "loW"
+order_check = check_order_of_characters(my_string, my_pattern)
+if order_check:
+    print("The order of characters in the string matches the pattern.")
+else:
+    print("The order of characters in the string does not match the pattern.")
+
+   
+7. Write a Python program to sort Python Dictionaries by Key or Value?
+Ans:
+def sort_dictionary_by_key(dictionary):
+    sorted_dict = dict(sorted(dictionary.items(), key=lambda item: item[0]))
+    return sorted_dict
+
+def sort_dictionary_by_value(dictionary):
+    sorted_dict = dict(sorted(dictionary.items(), key=lambda item: item[1]))
+    return sorted_dict
+
+# Example usage
+my_dict = {'b': 2, 'a': 1, 'd': 4, 'c': 3}
+sorted_by_key = sort_dictionary_by_key(my_dict)
+sorted_by_value = sort_dictionary_by_value(my_dict)
+
+print("Sorted by key:", sorted_by_key)
+print("Sorted by value:", sorted_by_value)
+
+
+
