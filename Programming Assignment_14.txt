@@ -1,0 +1,140 @@
+1. Define a class with a generator which can iterate the numbers, which are divisible by 7, between a given range 0 and n.
+Ans:
+class DivisibleBySevenGenerator:
+    def __init__(self, n):
+        self.n = n
+
+    def generate_divisible_by_seven(self):
+        for i in range(self.n + 1):
+            if i % 7 == 0:
+                yield i
+
+# Example usage
+n = int(input("Enter the range value (n): "))
+
+generator = DivisibleBySevenGenerator(n)
+for num in generator.generate_divisible_by_seven():
+    print(num)
+
+
+2. Write a program to compute the frequency of the words from the input. The output should output after sorting the key alphanumerically.
+Ans:
+def compute_word_frequency(input_text):
+    words = input_text.split()
+    word_freq = {}
+
+    for word in words:
+        if word in word_freq:
+            word_freq[word] += 1
+        else:
+            word_freq[word] = 1
+
+    sorted_word_freq = sorted(word_freq.items())
+
+    return sorted_word_freq
+
+# Example usage
+input_text = input("Enter the input text: ")
+frequency = compute_word_frequency(input_text)
+
+for word, freq in frequency:
+    print(word, ":", freq)
+
+
+3. Define a class Person and its two child classes: Male and Female. All classes have a method \"getGender\" which can print \"Male\" for Male class and \"Female\" for Female class.
+Ans:
+class Person:
+    def getGender(self):
+        return "Unknown"
+
+class Male(Person):
+    def getGender(self):
+        return "Male"
+
+class Female(Person):
+    def getGender(self):
+        return "Female"
+
+# Example usage
+person = Person()
+print(person.getGender())  # Output: Unknown
+
+male = Male()
+print(male.getGender())  # Output: Male
+
+female = Female()
+print(female.getGender())  # Output: Female
+
+
+4. Please write a program to generate all sentences where subject is in [\"I\", \"You\"] and verb is in ['Play', \"Love\"] and the object is in [\"Hockey\",\"Football\"].
+Ans:
+subjects = ["I", "You"]
+verbs = ["Play", "Love"]
+objects = ["Hockey", "Football"]
+
+sentences = []
+
+for subject in subjects:
+    for verb in verbs:
+        for obj in objects:
+            sentence = f"{subject} {verb} {obj}."
+            sentences.append(sentence)
+
+# Print the generated sentences
+for sentence in sentences:
+    print(sentence)
+
+
+5. Please write a program to compress and decompress the string \"hello world!hello world!hello world!hello world!\"
+Ans:
+import zlib
+
+def compress_string(input_string):
+    compressed_data = zlib.compress(input_string.encode())
+    return compressed_data
+
+def decompress_string(compressed_data):
+    decompressed_string = zlib.decompress(compressed_data).decode()
+    return decompressed_string
+
+# Example usage
+input_string = "hello world!hello world!hello world!hello world!"
+
+compressed_data = compress_string(input_string)
+print("Compressed data:", compressed_data)
+
+decompressed_string = decompress_string(compressed_data)
+print("Decompressed string:", decompressed_string)
+
+
+6. Please write a binary search function which searches an item in a sorted list. The function should return the index of element to be searched in the list.
+Ans:
+def binary_search(arr, item):
+    low = 0
+    high = len(arr) - 1
+
+    while low <= high:
+        mid = (low + high) // 2
+
+        if arr[mid] == item:
+            return mid
+        elif arr[mid] < item:
+            low = mid + 1
+        else:
+            high = mid - 1
+
+    return -1
+
+# Example usage
+sorted_list = [2, 4, 6, 8, 10, 12, 14]
+search_item = 8
+
+result = binary_search(sorted_list, search_item)
+
+if result != -1:
+    print(f"Item found at index {result}")
+else:
+    print("Item not found")
+
+
+ 
