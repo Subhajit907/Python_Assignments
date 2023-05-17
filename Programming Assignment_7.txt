@@ -1,0 +1,124 @@
+1. Write a Python Program to find sum of array?
+Ans:
+def sum_(arr,n):
+   # using built-in function
+   return(sum(arr))
+# main
+arr = [11,22,33,44,55,66]
+# length
+n = len(arr)
+ans = sum_(arr,n)
+# display sum
+print("Sum of the array is ",ans)
+
+2. Write a Python Program to find largest element in an array?
+Ans:
+def largest(arr, n):
+ 
+    # Initialize maximum element
+    max = arr[0]
+ 
+    # Traverse array elements from second
+    # and compare every element with
+    # current max
+    for i in range(1, n):
+        if arr[i] > max:
+            max = arr[i]
+    return max
+ 
+ 
+# Driver Code
+arr = [10, 324, 45, 90, 9808]
+n = len(arr)
+Ans = largest(arr, n)
+print("Largest in given array ", Ans)
+ 
+3. Write a Python Program for array rotation?
+Ans:
+#Function reverse the given array by swapping first and last numbers.
+def reverse(start,end,arr):
+
+	#No of iterations needed for reversing the list
+	no_of_reverse=end-start+1
+
+	#By incrementing count value swapping of first and last elements is done.
+	count=0
+	while((no_of_reverse)//2!=count):
+		arr[start+count],arr[end-count]=arr[end-count],arr[start+count]
+		count+=1
+	return arr
+
+#Function takes array, length of array and no of rotations as input
+def left_rotate_array(arr,size,d):
+
+	#Reverse the Entire List
+	start=0
+	end=size-1
+	arr=reverse(start,end,arr)
+	
+	#Divide array into twosub-array based on no of rotations.
+	#Divide First sub-array
+	#Reverse the First sub-array
+	start=0
+	end=size-d-1
+	arr=reverse(start,end,arr)
+	
+	#Divide Second sub-array
+	#Reverse the Second sub-array
+	start=size-d
+	end=size-1
+	arr=reverse(start,end,arr)
+	return arr
+	
+arr=[1,2,3,4,5,6,7,8]
+size=8
+d=1
+print('Original array:',arr)
+
+#Finding all the symmetric rotation number
+if(d<=size):
+	print('Rotated array: ',left_rotate_array(arr,size,d))
+else:
+	d=d%size
+	print('Rotated array: ',left_rotate_array(arr,size,d))
+
+
+4. Write a Python Program to Split the array and add the first part to the end?
+Ans:
+def splitArr(arr, n, k):
+	for i in range(0, k):
+		x = arr[0]
+		for j in range(0, n-1):
+			arr[j] = arr[j + 1]
+
+		arr[n-1] = x
+# main
+arr = [12, 10, 5, 6, 52, 36]
+n = len(arr)
+position = 2
+
+splitArr(arr, n, position)
+
+for i in range(0, n):
+	print(arr[i], end=' ')
+
+5. Write a Python Program to check if given array is Monotonic?
+Ans:
+def isMonotonic(A):
+    x, y = [], []
+    x.extend(A)
+    y.extend(A)
+    x.sort()
+    y.sort(reverse=True)
+    if(x == A or y == A):
+        return True
+    return False
+ 
+ 
+# Driver program
+A = [6, 5, 4, 4]
+ 
+# Print required result
+print(isMonotonic(A))
+   
+   
